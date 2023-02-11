@@ -44,7 +44,7 @@ const FileList = () => {
               <CircularProgressbar
                 styles={{
                   root: { width: 24 },
-                  path: { stroke: "#7159c1" },
+                  path: { stroke: "#2aedd0" },
                 }}
                 strokeWidth={10}
                 text={String(uploadedFile.progress)}
