@@ -21,7 +21,7 @@ export default function GeradorPdf({ ...props }) {
         };
       }
 
-    function windowsDimensions() {       
+    function WindowsDimensions() {       
         useEffect(() => {
           function handleResize() {
             setWindowDimensions(getWindowDimensions());
@@ -32,7 +32,7 @@ export default function GeradorPdf({ ...props }) {
         }, []);
         return windowDimensions
     }
-    windowsDimensions()
+    WindowsDimensions()
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages)
@@ -53,7 +53,7 @@ export default function GeradorPdf({ ...props }) {
     return (
         <ContainerPdf>
             <Document
-                file={`https://marceloupload.s3.sa-east-1.amazonaws.com/-${props.item}`}
+                file={`${process.env.REACT_APP_AWS_LINK}-${props.item}`}
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<img src={loading} alt='Gif carregamento'></img>}
             >
