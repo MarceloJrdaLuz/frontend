@@ -52,7 +52,7 @@ interface IFileContextData {
     confirmDelete: (id: string, name: string) => void
 }
 
-export interface IChildren{
+export interface IChildren {
     children: React.ReactNode
 }
 
@@ -80,13 +80,13 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
                 };
             });
 
-            postFormatted.sort(function(x, y) {
+            postFormatted.sort(function (x, y) {
                 let a = x.name.toUpperCase(),
-                b = y.name.toUpperCase();
+                    b = y.name.toUpperCase();
 
                 return a === b ? 0 : a > b ? 1 : -1
             })
-            
+
             setUploadedFiles(postFormatted);
         });
     }, []);
@@ -107,8 +107,9 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
         (uploadedFile: IFile) => {
             const data = new FormData();
             if (uploadedFile.file) {
-                data.append("file", uploadedFile.file, uploadedFile.name);
+                data.append("file", uploadedFile.file, uploadedFile.name.toLowerCase());
             }
+
 
             api
                 .post("posts", data, {
@@ -154,7 +155,7 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
             const newUploadedFiles: IFile[] = files.map((file: File) => ({
                 file,
                 id: uuidv4(),
-                name: file.name,
+                name: file.name.toLocaleUpperCase(),
                 readableSize: filesize(file.size),
                 preview: URL.createObjectURL(file),
                 progress: 0,

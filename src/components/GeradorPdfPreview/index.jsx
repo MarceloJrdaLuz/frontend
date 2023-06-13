@@ -53,7 +53,7 @@ export default function GeradorPdf({ ...props }) {
     return (
         <ContainerPdf>
             <Document
-                file={`${process.env.REACT_APP_AWS_LINK}-${props.item}`}
+                file={`${process.env.REACT_APP_AWS_LINK}-${props.item.replace(/\.PDF$/, '.pdf')}`}
                 onLoadSuccess={onDocumentLoadSuccess}
                 loading={<img src={loading} alt='Gif carregamento'></img>}
             >
