@@ -107,7 +107,7 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
         (uploadedFile: IFile) => {
             const data = new FormData();
             if (uploadedFile.file) {
-                data.append("file", uploadedFile.file, uploadedFile.name.toLowerCase());
+                data.append("file", uploadedFile.file, uploadedFile.name;
             }
 
 
@@ -155,7 +155,7 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
             const newUploadedFiles: IFile[] = files.map((file: File) => ({
                 file,
                 id: uuidv4(),
-                name: file.name.toLocaleUpperCase(),
+                name: file.name,
                 readableSize: filesize(file.size),
                 preview: URL.createObjectURL(file),
                 progress: 0,
