@@ -107,7 +107,11 @@ const FileProvider: React.FC<IChildren> = ({ children }) => {
         (uploadedFile: IFile) => {
             const data = new FormData();
             if (uploadedFile.file) {
+<<<<<<< HEAD
                 data.append("file", uploadedFile.file, uploadedFile.name);
+=======
+                data.append("file", uploadedFile.file, uploadedFile.name;
+>>>>>>> 40b5ecacefa906f2909d2a40715f08167395b6d8
             }
 
 
